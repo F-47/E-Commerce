@@ -1,6 +1,9 @@
 const userRouter = require('express').Router()
 const User = require('../model/user')
 const bcrypt = require('bcryptjs')
+userRouter.get('/', (req, res) => {
+    res.redirect('/home')
+})
 userRouter.get('/home', (req, res) => {
     res.render('HomePage', { title: 'Home' })
 })
