@@ -337,14 +337,40 @@
     </div>
     <!-- End Landing Page -->
     <%- include('./partials/footer.ejs') %>
-    <script src="main.js"></script>
+    <!-- SWIPER  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- Bootstrap -->
+    <script src="main.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
       crossorigin="anonymous"
     ></script>
-    <!-- SWIPER  -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".swiper", {
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        breakpoints: {
+          // when window width is <= 499px
+          499: {
+            slidesPerView: 3,
+            spaceBetweenSlides: 3,
+            slidesPerGroup: 3,
+          },
+          // when window width is <= 999px
+          999: {
+            slidesPerView: 6.3,
+            spaceBetweenSlides: 50,
+            slidesPerGroup: 7,
+          },
+        },
+      });
+    </script>
   </body>
 </html>

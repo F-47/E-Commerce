@@ -1,8 +1,7 @@
+
 let hotDeals = document.querySelector(".hot-deals .swiper-wrapper");
 
-fetch(
-  `https://app.interimapi.com/api/v1/630d451c-b61a-4ab8-b096-41895d5d798c/products?limit=40`
-)
+fetch(`https://app.interimapi.com/api/v1/630d451c-b61a-4ab8-b096-41895d5d798c/products?limit=40`)
   .then((response) => response.json())
   .then((products) => {
     let html = "";
@@ -136,7 +135,7 @@ fetch(
           </div>
         </div>
       </div>
-  `;
+      `
       cartShopBox.innerHTML += cartBoxContent;
       cartItems.append(cartShopBox);
       cartShopBox
@@ -176,41 +175,20 @@ fetch(
     }
   });
 
-// Swiper
-const swiper = new Swiper(".swiper", {
-  keyboard: {
-    enabled: true,
-    onlyInViewport: false,
-  },
-  scrollbar: {
-    el: ".swiper-scrollbar",
-    hide: true,
-  },
-  breakpoints: {
-    // when window width is <= 499px
-    499: {
-      slidesPerView: 3,
-      spaceBetweenSlides: 3,
-      slidesPerGroup: 3,
-    },
-    // when window width is <= 999px
-    999: {
-      slidesPerView: 6.3,
-      spaceBetweenSlides: 50,
-      slidesPerGroup: 7,
-    },
-  },
-});
-
-
-document.querySelector(".tosignup").addEventListener('click', (e) => {
+  document.querySelector(".tosignup").addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector(".signInForm").classList.add("hidden")
   document.querySelector(".signUpForm").classList.remove("hidden")
-})
+} )
 
 document.querySelector(".tosignin").addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector(".signInForm").classList.remove("hidden")
   document.querySelector(".signUpForm").classList.add("hidden")
 })
+
+
+
+
+
+
