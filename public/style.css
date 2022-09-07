@@ -12,6 +12,7 @@
 .container {
   padding-inline: 35px;
 }
+
 /* End Container  */
 
 /* Start Chat  */
@@ -24,6 +25,7 @@
   border-radius: 100px;
   cursor: pointer;
 }
+
 /* End Chat  */
 
 /* Start header  */
@@ -102,7 +104,7 @@ nav .check a:hover {
   z-index: -1;
   opacity: 0%;
   top: calc(100% + 50px);
-  transition: 0.5s;
+  transition: 0.5s
 }
 
 .sub-header .allCategoriesBtn:hover .megamenu {
@@ -147,34 +149,39 @@ nav .check a:hover {
 }
 
 /* End Mega-Menu */
-
 .sub-header .links .nav-item:hover a {
-  color: var(--black-color) !important;
+  color: var(--black-color) !important
 }
 
 /* End sub-header */
 
 /* Start hero and Banner  */
-.hero,
-.banner .content {
-  position: relative;
+.hero {
+  background-image: url("Imgs/Hero.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.hero .text,
-.banner .content .text {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  padding-inline: 50px;
-  transform: translateY(-50%);
+.hero .text {
+  width: 800px;
 }
 
 .hero .text h1 {
-  font-size: 4rem;
+  font-size: 60px !important;
 }
-.banner .content .text h1 {
-  font-size: 3rem;
+
+.hero .text p {
+  font-size: 25px !important;
 }
+
+.banner {
+  background-image: url("./Imgs/Banner.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+}
+
 /* End hero and Banner */
 
 .animatedArrow:hover .fa-arrow-right {
@@ -186,15 +193,19 @@ nav .check a:hover {
   0% {
     right: 0px;
   }
+
   25% {
     right: -10px;
   }
+
   50% {
     right: 0px;
   }
+
   75% {
     right: -10px;
   }
+
   100% {
     right: 0px;
   }
@@ -239,6 +250,7 @@ nav .check a:hover {
 .addtocarttext i {
   pointer-events: none;
 }
+
 .hidden {
   display: none !important;
 }

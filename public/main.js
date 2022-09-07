@@ -202,6 +202,7 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
+
 document.querySelector(".tosignup").addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector(".signInForm").classList.add("hidden")
