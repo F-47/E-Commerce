@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+  <body>
+    <!-- Start Chat  -->
+    <div class="chat m-3" style="z-index: 2">
+      <div class="fw-bold fs-5 px-4 py-2">
+        <i class="fa-regular fa-comment"></i> Help
+      </div>
+    </div>
+    <!-- End Chat  -->
+    <!-- Start Header  -->
+    <%- include('./partials/navbar.ejs') %>
+    <!-- End Header  -->
+    <%- include('./partials/sub-header.ejs') %>
+    <!-- Start hero -->
+    <div class="hero">
+      <div class="text text-light fs-3" style="max-width: 900px">
+        <h1>Order all products easily and at the best price.</h1>
+        <p class="text-white-50">
+          You can order business purchases through the platform from any global
+          site.
+        </p>
+        <button class="btn btn-lg btn-danger rounded-pill px-4 py-2">
+          Shop Now
+        </button>
+        <button class="btn btn-lg btn-warning rounded-pill px-4 py-2 ms-2">
+          Contact Us
+        </button>
+      </div>
+      <img src="Imgs/Hero.png" class="d-block w-100" />
+    </div>
+    <!-- End hero -->
+    <!-- Start Landing Page -->
+    <div class="landing-page">
+      <div class="container-fluid px-5">
+        <!-- Start Categories -->
+        <div class="categories mt-5">
+          <header class="d-flex align-items-center fw-bold">
+            <h2 class="fs-1">Categories</h2>
+            <button class="btn ms-auto rounded-0 border-0 fs-4">
+              <a href="" class="text-decoration-none animatedArrow text-danger"
+                >View All<i class="fa-solid fa-arrow-right ms-3"></i
+              ></a>
+            </button>
+          </header>
+          <div class="body-content row gap-3 mt-4">
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category1.png"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">Food </span>
+                </div>
+              </a>
+            </div>
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category2.png"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">Desktop </span>
+                </div>
+              </a>
+            </div>
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category3.png"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">Occasions </span>
+                </div>
+              </a>
+            </div>
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category4.png"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">Technology </span>
+                </div>
+              </a>
+            </div>
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category5.jpg"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">School </span>
+                </div>
+              </a>
+            </div>
+            <div class="col py-5 rounded">
+              <a href="" class="text-decoration-none">
+                <div class="image text-center">
+                  <img
+                    src="Imgs/category6.png"
+                    alt=""
+                    height="120px"
+                    class="text-center"
+                  />
+                </div>
+                <div class="text text-center fs-3 mt-4">
+                  <span class="text-dark">Hygiene </span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- End Categories -->
+        <!-- Start Banner -->
+        <div class="banner mt-5">
+          <div class="content">
+            <div class="text text-light fs-3" style="max-width: 700px">
+              <h1>Office stationery Everything the office needs is here.</h1>
+              <button class="btn btn-lg btn-danger rounded-pill px-4 py-2 mt-4">
+                Shop Now
+              </button>
+            </div>
+            <img src="Imgs/Banner.png" alt="" width="100%" />
+          </div>
+        </div>
+        <!-- End Banner -->
+        <!-- Start Hot Deals -->
+        <div class="hot-deals mt-5">
+          <header class="d-flex align-items-center fw-bold">
+            <h2 class="fs-1">Hot Deals</h2>
+            <button class="btn ms-auto rounded-0 border-0 fs-4">
+              <a href="" class="text-decoration-none animatedArrow text-danger"
+                >Shop Now<i class="fa-solid fa-arrow-right ms-3"></i
+              ></a>
+            </button>
+          </header>
+          <div class="body-content mt-4">
+            <div class="swiper">
+              <!--wrapper -->
+              <div class="swiper-wrapper"></div>
+              <!-- navigation buttons -->
+              <div class="swiper-scrollbar"></div>
+            </div>
+          </div>
+        </div>
+        <!-- End Hot Deals -->
+        <!-- Start Electronics -->
+        <div class="electronics mt-5 p-5">
+          <header class="d-flex align-items-center fw-bold">
+            <h2 class="fs-1">
+              Electronics - <span class="text-danger">Up TO 50% OFF</span>
+            </h2>
+            <button class="btn ms-auto rounded-0 border-0 fs-4">
+              <a href="" class="text-decoration-none animatedArrow text-danger"
+                >View All<i class="fa-solid fa-arrow-right ms-3"></i
+              ></a>
+            </button>
+          </header>
+          <div class="body-content mt-4">
+            <div class="row text-center mt-3">
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele1.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele2.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele3.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele4.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele5.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""
+                    ><img src="Imgs/ele6.png" height="400px" alt=""
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Electronics -->
+        <!-- Start Television Deals -->
+        <div class="tv-deals mt-5 pt-3 pb-5">
+          <header class="d-flex align-items-center fw-bold">
+            <h2 class="fs-1">Television Deals</h2>
+            <button class="btn ms-auto rounded-0 border-0 fs-4">
+              <a href="" class="text-decoration-none animatedArrow text-danger"
+                >View All<i class="fa-solid fa-arrow-right ms-3"></i
+              ></a>
+            </button>
+          </header>
+          <div class="body-content">
+            <div class="row text-center">
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv1.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >Samsung 43-Inch Full HD
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv7.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >TOSHIBA Smart Vidaa
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv2.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >Samsung 55-Inch Crystal
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv4.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >Samsung 43-Inch Crystal
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv5.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >Apple Watch Series 7
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+              <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="image">
+                  <a href=""><img src="Imgs/tv6.jpg" alt="" height="220" /></a>
+                </div>
+                <div class="text mb-2">
+                  <a href="" class="text-decoration-none text-dark"
+                    >Contex 32 Inch Hd STD
+                  </a>
+                </div>
+                <div class="price">
+                  EGP <span class="fw-bold">2199.85</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Television Deals -->
+      </div>
+    </div>
+    <!-- End Landing Page -->
+    <%- include('./partials/footer.ejs') %>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <!-- SWIPER  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

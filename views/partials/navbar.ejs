@@ -1,0 +1,127 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="logo">
+      <a href="/home"><img src="Imgs/logo.png" alt="" width="100px" /></a>
+    </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Search  -->
+      <form class="d-flex form-inline mx-auto my-2" role="search">
+        <input class="form-control search-barr rounded-0 fw-bold" type="search" aria-label="Search" type="text"
+          placeholder="What are you looking for?" name="q" autocomplete="none" />
+        <button type="submit" class="search-btn border-0">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+      <div class="check d-flex align-items-center">
+        <!-- SignIn -->
+        <div class="signin">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <span class="fw-bold text-white border-0">Sign In<i class="fa-regular fa-user ms-2"></i></span>
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <form method="post" class="modal-dialog modal-dialog-centered signInForm">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="x-btn modal-header border-0">
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="text-heading text-center pt-4">
+                    <span class="fs-4">Welcome back!</span>
+                    <h4 class="mb-3">Sign in to your account</h4>
+                    <div>
+                      Don't have an account?
+                      <a class="text-decoration-none tosignup border-0 p-0 bg-white">Sign Up</a>
+                    </div>
+                  </div>
+                  <div class="text-body px-5 py-3 text-muted">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control mb-3" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      name="email" />
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password" />
+                    <div class="forgot text-center mt-4">
+                      <a href="" class="text-decoration-none">
+                        Forgot your password?</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <input type="submit" value="SIGN IN" class="btn btn-primary" />
+                </div>
+              </div>
+            </form>
+            <!-- sign up -->
+            <form  method="post" class="modal-dialog modal-dialog-centered signUpForm hidden">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="x-btn modal-header border-0">
+                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="text-heading text-center pt-4">
+                    <span class="fs-4">Welcome back!</span>
+                    <h4 class="mb-3">Create your account</h4>
+                    <div>
+                      Already have an account?
+                      <a href="/" class="text-decoration-none tosignin">Sign In</a>
+                    </div>
+                  </div>
+                  <div class="text-body px-5 py-3 text-muted">
+                    <label for="InputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control mb-3" id="InputEmail1" aria-describedby="emailHelp"
+                      name="email" />
+                    <label for="InputPassword1">Password</label>
+                    <input type="password" class="form-control mb-3" id="InputPassword1" name="password" />
+                    <label for="Inputname" class="form-label">Name</label>
+                    <input type="text" class="form-control mb-3" id="Inputname" aria-describedby="emailHelp"
+                      name="name" />
+                    
+                  </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                  <input type="submit" value="SIGN UP" class="btn btn-primary" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <!-- Modal -->
+        </div>
+        <!-- Cart  -->
+        <div class="cart fw-bold">
+          <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">
+            <span class="fw-bold text-white border-0">Cart<i class="fa-solid fa-cart-shopping ms-2"></i></span>
+            <div class="cart-counter text-light">2</div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Cart Modal -->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title fw-bold m-auto fs-3" id="offcanvasExampleLabel">
+      Your Cart
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="card cart-content mb-3 border-0" style="max-width: 540px"></div>
+    <hr />
+    <div class="total fw-bold d-flex justify-content-end mb-5 fs-5">
+      <span class="total-price">Total: 0 EGP</span>
+    </div>
+    <button class="btn btn-danger m-auto d-flex justify-content-center fs-4 fw-bold rounded-0">
+      Buy Now
+    </button>
+  </div>
+</div>
