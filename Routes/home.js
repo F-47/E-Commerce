@@ -3,10 +3,11 @@ let router = express.Router()
 let User = require('../model/user')
 let bcrypt = require('bcryptjs')
 let passport = require('passport')
+let {ensureAuthenticated} = require('../config/auth')
 
 
-router.get("/Dashboard", (req, res) => {
-  res.render("DashBoard", { title: "Home" });
+router.get("/Dashboard",ensureAuthenticated, (req, res) => {
+  res.render("DashBoard", { name:req.user.name, title: "Home" });
 });
 
 router.get("/",(req,res)=>{
@@ -24,7 +25,7 @@ router.get("/home/login", (req, res) => {
 // Login handler 
 router.post('/home/login', (req, res,next) => {
     passport.authenticate('local', {
-        successRedirect: '/Dashboard',
+        successRedirect: '/DashBoard',
         failureRedirect: '/home/login', 
         failureFlash:true
     })(req,res,next)
@@ -93,11 +94,16 @@ router.post("/home/register", (req, res) => {
 });
 
 
+router.get('/home/logout',(req, res, next)=>{
+  req.logout((err) => {
+    if (err) return next(err)
+    req.flash("success_msg","You are logged out")
+    res.redirect('/home/login');
+  });
+});
 
 router.get('/productDetails', (req, res) => {
     res.render('productDetails', { title: 'Product' })
 })
-
-
 
 module.exports = router
