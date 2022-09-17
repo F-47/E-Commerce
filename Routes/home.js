@@ -5,42 +5,37 @@ let bcrypt = require('bcryptjs')
 let passport = require('passport')
 let {ensureAuthenticated} = require('../config/auth')
 
-
-router.get("/Dashboard",ensureAuthenticated, (req, res) => {
-  res.render("DashBoard", { name:req.user.name, title: "Home" });
-});
-
 router.get("/",(req,res)=>{
     res.redirect("/home")
 })
 
 router.get("/home", (req, res) => {
-  res.render("HomePage", { title: "Home" });
+  res.render("HomePage", { user:req.user,title: "Home" });
 });
 
 router.get("/home/login", (req, res) => {
-  res.render("Login", { title: "Login" });
+  res.render("Login", { user:req.user,title: "Login" });
 });
 
 // Login handler 
 router.post('/home/login', (req, res,next) => {
     passport.authenticate('local', {
-        successRedirect: '/DashBoard',
+        successRedirect: '/home',
         failureRedirect: '/home/login', 
         failureFlash:true
     })(req,res,next)
 })
 
 router.get("/home/register", (req, res) => {
-  res.render("Register", { title: "Register" });
+  res.render("Register", { user:req.user,title: "Register" });
 });
 
 router.post("/home/register", (req, res) => {
-   let { name, email, password, password2 } = req.body;
+   let { firstname,lastname, email, password, password2 } = req.body;
     let errors = []
     
     //check that all fields are filled
-    if (!name || !email || !password || !password2) {
+    if (!firstname || !lastname || !email || !password || !password2) {
         errors.push({msg:"Please fill out all the fields"})
     }
 
@@ -56,15 +51,17 @@ router.post("/home/register", (req, res) => {
 
     //check if their is any errors 
     if (errors.length > 0) {
-        res.render('register',{errors,name,email,password,password2,title: "Register"})
+        res.render('register',{errors,firstname,lastname,email,password,password2,title: "Register"})
     } else {
         User.findOne({ email: email })
             .then(user => {
                 errors.push({msg:"Email is already registered"})
                 if (user) {
                     res.render('register', {
+                        user:req.user,
                         errors,
-                        name,
+                        firstname,
+                        lastname,
                         email,
                         password,
                         password2,
@@ -72,7 +69,7 @@ router.post("/home/register", (req, res) => {
                     })
                 } else {
                     // if user doesn't exist create new one
-                    let newUser = new User({name,email,password})
+                    let newUser = new User({firstname,lastname,email,password})
                     //crypt password
                     bcrypt.genSalt(10, (err,salt) => {
                         bcrypt.hash(newUser.password, salt, (err,hash) => {
@@ -93,12 +90,25 @@ router.post("/home/register", (req, res) => {
     }
 });
 
+router.get("/home/profile",ensureAuthenticated, (req, res) => {
+    res.render("Profile", { user:req.user, title: "Home" });
+});
+
+router.delete('/user/:id', (req, res) => {
+    let id = req.params.id;
+    User.findByIdAndDelete(id)
+        .then((result) => {
+            res.json({redirect:'/home'})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
 
 router.get('/home/logout',(req, res, next)=>{
   req.logout((err) => {
     if (err) return next(err)
-    req.flash("success_msg","You are logged out")
-    res.redirect('/home/login');
+    res.redirect('/home');
   });
 });
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <%- include('./partials/navbar.ejs') %>
+    <div
+      class="profileContent pt-5"
+      style="background-color: #f3f4f8; height: 80vh"
+    >
+      <div class="container">
+        <h2 class="fw-bold">Profile</h2>
+        <span class="text-muted"
+          >Manage your details, view your tier status and change your
+          password</span
+        >
+        <div class="card mt-4 rounded-0 border-0 p-3 generalInfo">
+          <div class="card-body">
+            <h3 class="card-title">General Info</h3>
+            <div class="inputs d-flex mt-3">
+              <div class="inputGroup d-flex flex-column fw-bold">
+                <label class="mb-2">First name</label>
+                <input class="px-2 text-muted" readonly="readonly" type="text" value=<%= user.firstname %>>
+              </div>
+              <div class="inputGroup d-flex flex-column fw-bold ms-5">
+                <label class="mb-2">Last name</label>
+                <input class="px-2 text-muted" readonly="readonly" type="text" value=<%= user.lastname %>>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-4 rounded-0 border-0 p-3 security">
+          <div class="card-body">
+            <h3 class="card-title">Security</h3>
+            <div class="inputs d-flex mt-3">
+              <div class="inputGroup d-flex flex-column fw-bold">
+                <label class="mb-2">Email</label>
+                <input class="px-2 text-muted" readonly="readonly" type="text" value=<%= user.email %>>
+            </div>
+            </div>
+            <a class="deleteAcc btn btn-link border-0 text-danger fw-bold fs-5 mx-0 mt-2 px-0 text-decoration-none" data-doc="<%= user._id %>">Delete Account<i class="fa-solid fa-trash ms-1"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs')%>
+  </body>
+  <script>
+    let deleteAcc = document.querySelector(".deleteAcc");
+    deleteAcc.addEventListener("click", (e) => {
+      let endPoint = `/user/${deleteAcc.dataset.doc}`;
+      fetch(endPoint, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((data) => (window.location.href = data.redirect))
+        .catch((err) => console.log(err));
+    });
+  </script>
+</html>

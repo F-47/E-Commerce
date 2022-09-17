@@ -32,14 +32,35 @@
       </form>
       <div class="check d-flex align-items-center">
         <!-- SignIn -->
-        <div class="signin">
-          <!-- Button trigger modal -->
-          <a
-            href="/home/login"
-            class="fw-bold text-white border-0 text-decoration-none btn"
-            >Sign In<i class="fa-regular fa-user ms-2"></i
-          ></a>
-        </div>
+        <% if(user){ %> 
+          <div class="account dropdown">
+            <div class="text-light text-center">Hello <%= user.firstname %> </div>
+            <a
+              class="fw-bold text-white border-0 text-decoration-none btn"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              My Account<i class="fa-regular fa-user ms-2"></i>
+            </a>
+            <ul class="dropdown-menu p-0 rounded-0">
+              <li>
+                <a class="dropdown-item" href="/home/profile?id=<%=user._id %>">Profile</a>
+                <a href="/home/logout" class="dropdown-item">Logout</a>
+              </li>
+            </ul>
+          </div>
+          <% }else{ %> 
+            <div class="signin">
+              <!-- Button trigger modal -->
+              <a
+                href="/home/login"
+                class="fw-bold text-white border-0 text-decoration-none btn"
+                >Sign In<i class="fa-regular fa-user ms-2"></i
+              ></a>
+            </div>
+            <% } %>  
+        
         <!-- Cart  -->
         <div class="cart fw-bold">
           <button
