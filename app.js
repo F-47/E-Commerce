@@ -1,51 +1,54 @@
 let express = require('express')
 const { port, database } = require('./config/config')
-const router = require("./router/productRouter")
-const userRouter = require('./router/userRouter')
-const bodyParser = require('body-parser')
 const mongoose=require('mongoose')
-const bcrypt = require('bcryptjs')
-const flash = require('flash')
-const expressValidator = require('express-validator');
-const passport = require('passport')
+let flash = require("connect-flash")
+let session = require("express-session")
+let passport = require('passport')
+
 let app = express()
 
+//passport config
+require("./config/passport")(passport)
 
-mongoose
-    .connect(database)
+//create mongodb
+mongoose.connect(database,{ useNewUrlParser: true })
     .then(() => console.log("Database connected!"))
     .catch(err => console.log(err));
 
 app.set("view engine", "ejs")
-//middleware and  static files
+
+//Middleware and Static files
 app.use(express.static('public')) // we can access any file in the public folder
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use('/', router)
-app.use('/', userRouter)
+app.use(express.urlencoded({ extended: false })); // so we can access the data coming from the input value
 
-app.use(function (req, res, next) {
-    res.locals.messages = require('express-messages')(req, res)
-    next()
-})
+// Express Session Middleware 
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true,
+}))
 
-
-
-require('./config/passport')
+//Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.get('*', (req, res, next) => {
-    res.locals.user = req.user || null
+// connect-flash middleware 
+app.use(flash());
+
+//global vars
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
     next()
 })
 
+//Routes
+app.use('/',require('./Routes/home'))
 
-const dashboardRouter = require('./router/authRoutes')
-
-app.use(expressValidator())
-
-app.use(flash())
+app.use((req, res) => {
+  res.status(404).render("404", { title: "404" });
+});
 
 app.listen(port, () => {
     console.log(`conected with port ${port}`)

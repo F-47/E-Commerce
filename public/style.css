@@ -79,6 +79,27 @@ nav .check a:hover {
 
 /*End header  */
 
+/* Login */
+ .password {
+  position: relative;
+}
+
+.password #eye {
+  position: absolute;
+  right: 22px;
+  top: 75%;
+  transform: translate(0, -50%);
+  width: 10px;
+  cursor: pointer;
+  color: #7a797e;
+}
+
+input[type=password]::-ms-reveal,
+input[type=password]::-ms-clear {
+  display: none;
+}
+/* Login */
+
 /* Start sub-header */
 
 .sub-header .container-fluid {
@@ -107,7 +128,7 @@ nav .check a:hover {
   transition: 0.5s
 }
 
-.sub-header .allCategoriesBtn:hover .megamenu {
+.sub-header .allCategoriesBtn .megamenu.show{
   z-index: 4;
   opacity: 100%;
   width: 100%;

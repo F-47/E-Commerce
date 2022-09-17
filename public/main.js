@@ -175,17 +175,23 @@ fetch(`https://app.interimapi.com/api/v1/630d451c-b61a-4ab8-b096-41895d5d798c/pr
     }
   });
 
-  document.querySelector(".tosignup").addEventListener('click', (e) => {
+//click on allCategoriesBtn
+document.querySelector(".allCategoriesBtn").addEventListener("click",()=>{
+  document.querySelector(".megamenu").classList.toggle("show")
+})
+
+document.querySelector(".tosignup").addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector(".signInForm").classList.add("hidden")
   document.querySelector(".signUpForm").classList.remove("hidden")
-} )
+})
 
 document.querySelector(".tosignin").addEventListener('click', (e) => {
   e.preventDefault()
   document.querySelector(".signInForm").classList.remove("hidden")
   document.querySelector(".signUpForm").classList.add("hidden")
 })
+
 
 
 

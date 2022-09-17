@@ -1,39 +1,37 @@
-const passport = require('passport')
-const localStragey = require('passport-local').Strategy
-const bcrypt = require('bcryptjs')
-const User = require('../model/user')
+let localStrategy = require('passport-local').Strategy;
+let bcrypt = require('bcryptjs');
 
-passport.use(new localStragey({
-    usernameField: "email",
-    passwordField: "password"
-}, (username, password, done) =>{
+const User = require('../model/user');
 
-    let query = {email : username} 
-    User.findOne(query, (err, user) =>{
-        if (err) { return done(err) }
-        if (!user) {
-            return done(null, false, {type:"errorlogin", message: "no user found."})
-        }
-        bcrypt.compare(password, user.password, (err,isMatch) =>{
-            if(err) {
-                return done(err)
-            }
-            if (!isMatch) {
-                return done(null, false, {type:"errorlogin", message: "wrong password."})
-            } else {
-                return done(null, user)
-            }
-            
+module.exports = function (passport) {
+    passport.use(
+        new localStrategy({ usernameField: 'email' }, (email, password, done) => {
+            //match User
+            User.findOne({ email: email })
+                .then(user => {
+                    if (!user) {
+                        return done(null,false,{message:"This email is not registered"})
+                    }
+                    //comparing password
+                    bcrypt.compare(password,user.password, (err,isMatch) => {
+                        if (err) throw err;
+                        
+                        if (isMatch) {
+                            return done(null,user)
+                        } else {
+                            return done(null,false,{message:"Wrong Password"})
+                        }
+                    })
+                })
         })
-    })
-}))
+    )
+            passport.serializeUser((user, done) => {
+                done(null,user.id)
+            });
 
-passport.serializeUser((user, done) =>{
-    return done(null, user.id)
-})
-
-passport.deserializeUser((id,done) =>{
-    User.findById(id, (err,user) =>{
-        return done(err,user)
-    })
-})
+            passport.deserializeUser((id, done) => {
+                User.findById(id, (err, user) => {
+                    done(err,user)
+                })
+            });
+}
