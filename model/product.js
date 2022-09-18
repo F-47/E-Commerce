@@ -9,7 +9,7 @@ productSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  image: {
+  image_url: {
     type: String,
     required: false
   },
