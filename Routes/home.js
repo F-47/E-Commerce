@@ -12,19 +12,22 @@ router.get("/", userController.getHome)
 
 router.get("/home", productController.getAllProduct);
 
+// Login handler 
 router.get("/home/login", userController.getLogin);
 
-// Login handler 
 router.post('/home/login', userController.postlogin)
 
+// Register handler 
 router.get("/home/register", userController.getRegister);
 
 router.post("/home/register", userController.postRegister);
 
 router.get("/home/profile", ensureAuthenticated, userController.getProfile);
 
+// DeleteAcc handler 
 router.delete('/user/:id', userController.deleteUser)
 
+// Logout handler 
 router.get('/home/logout', userController.logoutUser);
 
 router.get('/productDetails', (req, res) => {

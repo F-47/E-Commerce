@@ -13,6 +13,7 @@ exports.getAllProduct = async (req, res) => {
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
+  
   return res.status(201).render('HomePage',
     {
       title: 'Products',
@@ -20,6 +21,7 @@ exports.getAllProduct = async (req, res) => {
       arr: products
     })
 }
+
 exports.addProduct = async (req, res, next) => {
   const name = req.body.name;
   const category = req.body.category
@@ -41,6 +43,7 @@ exports.addProduct = async (req, res, next) => {
     return res.status(500).json({ message: 'unable To add' })
   } return res.status(201).json({ product })
 }
+
 exports.getDetails = async (req, res, next) => {
   let product;
   try {
@@ -57,6 +60,7 @@ exports.getDetails = async (req, res, next) => {
     user: req.user,
   })
 }
+
 exports.getLaptops = async (req, res) => {
 
   let products;
@@ -70,7 +74,7 @@ exports.getLaptops = async (req, res) => {
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
-  return res.status(201).render('laptops',
+  return res.status(201).render('./category/laptops',
     {
       title: 'Products',
       user: req.user,
@@ -78,6 +82,7 @@ exports.getLaptops = async (req, res) => {
     })
 
 }
+
 exports.getMobiles = async (req, res) => {
 
   let products;

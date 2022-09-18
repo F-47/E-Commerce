@@ -1,32 +1,7 @@
 
 let hotDeals = document.querySelector(".hot-deals .swiper-wrapper");
 
-fetch(`https://app.interimapi.com/api/v1/630d451c-b61a-4ab8-b096-41895d5d798c/products?limit=40`)
-  .then((response) => response.json())
-  .then((products) => {
-    let html = "";
-    products.forEach((product) => {
-      html += ` 
-          <div class="swiper-slide bg-light p-2 ">
-                <div class="text-center ">
-                  <a href="/productDetails?id=${product.id}"><img src="${product.image_url}" alt="" class="product-img" height="220" /></a>
-                </div>
-                <div class="text mb-1">
-                <div class="product-category text-danger fw-bold">Technology</div>
-                  <a href="/productDetails?id=${product.id}" class="text-decoration-none text-dark text-product fw-bold" 
-                    >${product.name}
-                  </a>
-                </div>
-                <div class="price text-primary">
-                  <span class="fw-bold">${product.price}</span>
-                </div>
-                <div class="mt-4 text-center text-light fs-5 fw-bold cursor-pointer m-auto addtocarttext add-to-cart rounded-pill px-3 py-2">
-                  <span >Add to Cart <i class="fa-solid fa-plus ms-2 fs-5"></i></span> 
-                </div>
-            </div>
-        `;
-    });
-    hotDeals.innerHTML = html;
+
     // Remove Item From Cart
     let removeCartButtons = [...document.getElementsByClassName("delete")];
     removeCartButtons.forEach((button) => {
@@ -173,7 +148,7 @@ fetch(`https://app.interimapi.com/api/v1/630d451c-b61a-4ab8-b096-41895d5d798c/pr
         cartContent.style.display = "none";
       }
     }
-  });
+
 
 //click on allCategoriesBtn
 document.querySelector(".allCategoriesBtn").addEventListener("click",()=>{

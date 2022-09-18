@@ -5,6 +5,7 @@
   <body>
     <%- include('./partials/navbar.ejs') %>
       <%- include('./partials/sub-header.ejs') %>
+      <div class="prodDetails container my-5 py-5">
         <div class="row">
           <div class="col-lg-5 text-center" style="width: fit-content">
             <img src="<%= product.image_url%> " alt="" />
@@ -15,7 +16,7 @@
                 <span href="" class="text-decoration-none text-info fw-light">Brand: <%= product.name.split(" ")[0]%></span>
             </div>
             <div class=" product-price fw-bold mt-2 fs-5">
-                    <%= product.price %>
+              <%= product.price %>
             </div>
             <div class="more-info mt-3">
               All prices include VAT. <br />
@@ -73,8 +74,9 @@
             </div>
           </div>
         </div>
+      </div>
         <%- include('./partials/footer.ejs') %>
-          <!-- <script src="productDetails.js"></script> -->
+      <!-- <script src="productDetails.js"></script> -->
   </body>
 
 </html>

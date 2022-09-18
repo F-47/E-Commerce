@@ -109,10 +109,48 @@
                     </a>
                     </div>
                     </div>
+            </div>
+            <!-- End Categories -->
+            <!-- Start Mobiles Deals -->
+           <div class="mobiles-deals mt-5 pt-3 pb-5">
+            <header class="d-flex align-items-center fw-bold">
+              <h2 class="fs-1">Mobiles Deals</h2>
+              <button class="btn ms-auto rounded-0 border-0 fs-4">
+                <a href="/home/mobiles" class="text-decoration-none animatedArrow text-danger">View All<i
+                    class="fa-solid fa-arrow-right ms-3"></i></a>
+              </button>
+            </header>
+              <div class="body-content">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                  <% arr.map((item)=>{ %>
+                    <% if(item.category == "Mobiles") {%> 
+                    <div class="swiper-slide bg-light p-2">
+                        <div class="text-center">
+                          <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                        </div>
+                        <div class="text mb-1">
+                          <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                            <%= item.name %>
+                          </a>
+                        </div>
+                        <div class="price text-primary">
+                          <span class="fw-bold"><%= item.price %></span>
+                        </div>
+                        <div class="mt-4 text-center text-light fs-5 fw-bold cursor-pointer m-auto addtocarttext add-to-cart rounded-pill px-3 py-2">
+                          <span >Add to Cart <i class="fa-solid fa-plus ms-2 fs-5"></i></span> 
+                        </div>
                     </div>
-                    <!-- End Categories -->
-                    <!-- Start Banner -->
-                    <div class="banner mt-5 d-flex align-items-center" style="height: 100%">
+                    <% } %> 
+                  <% }) %>
+                  </div>
+                  <div class="swiper-scrollbar"></div>
+                </div>
+              </div>
+            </div>
+            <!-- End Mobiles Deals -->
+            <!-- Start Banner -->
+            <div class="banner mt-5 d-flex align-items-center" style="height: 100%">
                       <div class="container m-0">
                         <div class="banner-text text-light fs-3 p-5 m-5">
                           <h1>
@@ -124,29 +162,48 @@
                           </button>
                         </div>
                       </div>
+            </div>
+            <!-- End Banner -->
+           <!-- Start Laptop Deals -->
+           <div class="laptop-deals mt-5 pt-3 pb-5">
+            <header class="d-flex align-items-center fw-bold">
+              <h2 class="fs-1">Laptop Deals</h2>
+              <button class="btn ms-auto rounded-0 border-0 fs-4">
+                <a href="/home/laptops" class="text-decoration-none animatedArrow text-danger">View All<i
+                    class="fa-solid fa-arrow-right ms-3"></i></a>
+              </button>
+            </header>
+              <div class="body-content">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                  <% arr.map((item)=>{ %>
+                    <% if(item.category == "Laptop") {%> 
+                    <div class="swiper-slide bg-light p-2">
+                        <div class="text-center">
+                          <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                        </div>
+                        <div class="text mb-1">
+                          <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                            <%= item.name %>
+                          </a>
+                        </div>
+                        <div class="price text-primary">
+                          <span class="fw-bold"><%= item.price %></span>
+                        </div>
+                        <div class="mt-4 text-center text-light fs-5 fw-bold cursor-pointer m-auto addtocarttext add-to-cart rounded-pill px-3 py-2">
+                          <span >Add to Cart <i class="fa-solid fa-plus ms-2 fs-5"></i></span> 
+                        </div>
                     </div>
-                    <!-- End Banner -->
-                    <!-- Start Hot Deals -->
-                    <div class="hot-deals mt-5">
-                      <header class="d-flex align-items-center fw-bold">
-                        <h2 class="fs-1">Hot Deals</h2>
-                        <button class="btn ms-auto rounded-0 border-0 fs-4">
-                  <a href="" class="text-decoration-none animatedArrow text-danger">Shop Now<i
-                      class="fa-solid fa-arrow-right ms-3"></i></a>
-                </button>
-                </header>
-                <div class="body-content mt-4">
-                  <div class="swiper">
-                    <!--wrapper -->
-                    <div class="swiper-wrapper"></div>
-                    <!-- navigation buttons -->
-                    <div class="swiper-scrollbar"></div>
+                    <% } %> 
+                  <% }) %>
                   </div>
+                  <div class="swiper-scrollbar"></div>
                 </div>
-                </div>
-                <!-- End Hot Deals -->
-                <!-- Start Electronics -->
-                <div class="electronics mt-5 p-5">
+              </div>
+            </div>
+            <!-- End Laptop Deals -->
+            <!-- Start Electronics -->
+            <div class="electronics mt-5 p-5">
                   <header class="d-flex align-items-center fw-bold">
                     <h2 class="fs-1">
                       Electronics - <span class="text-danger">Up TO 50% OFF</span>
@@ -190,135 +247,77 @@
                     </div>
                     </div>
                     </div>
-                    </div>
-                    <!-- End Electronics -->
-                    <!-- Start Television Deals -->
-                    <div class="tv-deals mt-5 pt-3 pb-5">
-                      <header class="d-flex align-items-center fw-bold">
-                <h2 class="fs-1">Laptop Deals</h2>
+              </div>
+            <!-- End Electronics --> 
+            <!-- Start homeAppliances Deals -->
+            <div class="homeAppliances-deals mt-5 pt-3 pb-5">
+              <header class="d-flex align-items-center fw-bold">
+                <h2 class="fs-1">HomeAppliances Deals</h2>
                 <button class="btn ms-auto rounded-0 border-0 fs-4">
-                  <a href="/home/laptops" class="text-decoration-none animatedArrow text-danger">View All<i
+                  <a href="/home/homeAppliances" class="text-decoration-none animatedArrow text-danger">View All<i
                       class="fa-solid fa-arrow-right ms-3"></i></a>
                 </button>
-                </header>
+              </header>
                 <div class="body-content">
-                  <div class="row text-center">
-                    <% for(var i=0; i < 6; i++) { %>
-                      <div class="col-lg-2 col-md-4 col-sm-6">
-                      <a href="/productDetails/<%= arr[i]._id %>">
-                        <div class="image">
-                          <a href="/productDetails/<%= arr[i]._id %>"><img src="<%= arr[i].image_url %>" alt="" height="220" />
-                        </div>
-                        <div class="text mb-2">
-                          <a href="/productDetails/<%= arr[i]._id %>" class="text-decoration-none text-dark">
-                            <%= arr[i].name %>
-                          </a>
-                        </div>
-                        <div class="price">
-                          <span class="fw-bold">
-                            <%= arr[i].price %>
-                          </span>
-                        </div>
-                      </a>
+                  <div class="swiper">
+                    <div class="swiper-wrapper">
+                    <% arr.map((item)=>{ %>
+                      <% if(item.category == "homeAppliances") {%> 
+                      <div class="swiper-slide bg-light p-2">
+                          <div class="text-center">
+                            <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                          </div>
+                          <div class="text mb-1">
+                            <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                              <%= item.name %>
+                            </a>
+                          </div>
+                          <div class="price text-primary">
+                            <span class="fw-bold"><%= item.price %></span>
+                          </div>
+                          <div class="mt-4 text-center text-light fs-5 fw-bold cursor-pointer m-auto addtocarttext add-to-cart rounded-pill px-3 py-2">
+                            <span >Add to Cart <i class="fa-solid fa-plus ms-2 fs-5"></i></span> 
+                          </div>
+                      </div>
+                      <% } %> 
+                    <% }) %>
                     </div>
-
-                    <!-- <div class="col-lg-2 col-md-4 col-sm-6">
-                                                                                                                                                                                                                                                  <div class="image">
-                                                                                                                                                                                                                                                    <a href=""><img src="Imgs/tv7.jpg" alt="" height="220" /></a>
-                                                                                                                                                                                                                                                  </div>
-                                                                                                                                                                                                                                                  <div class="text mb-2">
-                        <a href="" class="text-decoration-none text-dark">TOSHIBA Smart Vidaa
-                        </a>
-                        </div>
-                        <div class="price">
-                          EGP <span class="fw-bold">2199.85</span>
-                        </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-6">
-                          <div class="image">
-                            <a href=""><img src="Imgs/tv2.jpg" alt="" height="220" /></a>
-                          </div>
-                          <div class="text mb-2">
-                        <a href="" class="text-decoration-none text-dark">Samsung 55-Inch Crystal
-                        </a>
-                        </div>
-                        <div class="price">
-                          EGP <span class="fw-bold">2199.85</span>
-                        </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-6">
-                          <div class="image">
-                            <a href=""><img src="Imgs/tv4.jpg" alt="" height="220" /></a>
-                          </div>
-                          <div class="text mb-2">
-                        <a href="" class="text-decoration-none text-dark">Samsung 43-Inch Crystal
-                        </a>
-                        </div>
-                        <div class="price">
-                          EGP <span class="fw-bold">2199.85</span>
-                        </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-6">
-                          <div class="image">
-                            <a href=""><img src="Imgs/tv5.jpg" alt="" height="220" /></a>
-                          </div>
-                          <div class="text mb-2">
-                        <a href="" class="text-decoration-none text-dark">Apple Watch Series 7
-                        </a>
-                        </div>
-                        <div class="price">
-                          EGP <span class="fw-bold">2199.85</span>
-                        </div>
-                        </div>
-                        <div class="col-lg-2 col-md-4 col-sm-6">
-                          <div class="image">
-                            <a href=""><img src="Imgs/tv6.jpg" alt="" height="220" /></a>
-                          </div>
-                          <div class="text mb-2">
-                        <a href="" class="text-decoration-none text-dark">Contex 32 Inch Hd STD
-                        </a>
-                        </div>
-                        <div class="price">
-                          EGP <span class="fw-bold">2199.85</span>
-                        </div>
-                    </div> -->
-                    <% } %>
+                    <div class="swiper-scrollbar"></div>
+                  </div>
                 </div>
-                </div>
-                </div>
-                <!-- End Television Deals -->
-                </div>
-                </div>
+            </div>
+             <!-- End homeAppliances Deals -->
+        </div>
                 <!-- End Landing Page -->
-                <%- include('./partials/footer.ejs') %>
-                  <!-- SWIPER  -->
-                  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-                  <script>
-                    const swiper = new Swiper(".swiper", {
-                      keyboard: {
-                        enabled: true,
-                        onlyInViewport: false,
-                      },
-                      scrollbar: {
-                        el: ".swiper-scrollbar",
-                        hide: true,
-                      },
-                      breakpoints: {
-                        // when window width is <= 499px
-                        499: {
-                          slidesPerView: 3,
-                          spaceBetweenSlides: 3,
-                          slidesPerGroup: 3,
-                        },
-                        // when window width is <= 999px
-                        999: {
-                          slidesPerView: 6.3,
-                          spaceBetweenSlides: 50,
-                          slidesPerGroup: 7,
-                        },
-                      },
-                    });
-                  </script>
-  </body>
+      <%- include('./partials/footer.ejs') %>
+      <!-- swiper  -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+      <script>
+        const swiper = new Swiper(".swiper", {
+          keyboard: {
+            enabled: true,
+            onlyInViewport: false,
+          },
+          scrollbar: {
+            el: ".swiper-scrollbar",
+            hide: true,
+          },
+          breakpoints: {
+            // when window width is <= 499px
+            499: {
+              slidesPerView: 3,
+              spaceBetweenSlides: 3,
+              slidesPerGroup: 3,
+            },
+            // when window width is <= 999px
+            999: {
+              slidesPerView: 6.3,
+              spaceBetweenSlides: 50,
+              slidesPerGroup: 7,
+            },
+          },
+        });
+      </script>
+   </body>
 
 </html>
