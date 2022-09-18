@@ -10,19 +10,21 @@
         <div class="row text-center">
           <% for(var i=0; i < arr.length-2; i++) { %>
             <div class="col-lg-2 col-md-4 col-sm-6">
-              <div class="image">
-                <a href=""><img src="<%= arr[i].image %>" alt="" height="220" /></a>
-              </div>
-              <div class="text mb-2">
-                <a href="" class="text-decoration-none text-dark">
-                  <%= arr[i].name %>
-                </a>
-              </div>
-              <div class="price">
-                <span class="fw-bold">
-                  <%= arr[i].price %>
-                </span>
-              </div>
+              <a href="/productDetails/<%= arr[i]._id %> " class="">
+                <div class="image">
+                  <a href="/productDetails/<%= arr[i]._id %>"><img src="<%= arr[i].image %>" alt="" height="220" /></a>
+                  </div>
+                  <div class="text mb-2">
+                    <a href="/productDetails/<%= arr[i]._id %>" class="text-decoration-none text-dark">
+                      <%= arr[i].name %>
+                    </a>
+                    </div>
+                    <div class="price">
+                      <span class="fw-bold">
+                        <%= arr[i].price %>
+                      </span>
+                    </div>
+              </a>
             </div>
             <% } %>
         </div>
