@@ -4,12 +4,14 @@ const mongoose=require('mongoose')
 let flash = require("connect-flash")
 let session = require("express-session")
 let passport = require('passport')
-
+let bodyParser = require('body-parser')
 let app = express()
 
 //passport config
 require("./config/passport")(passport)
-
+app.use(bodyParser.urlencoded({ extended: false }))
+// parse application/json
+app.use(bodyParser.json())
 //create mongodb
 mongoose.connect(database,{ useNewUrlParser: true })
     .then(() => console.log("Database connected!"))

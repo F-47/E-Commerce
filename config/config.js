@@ -1,4 +1,4 @@
 module.exports = {
-    port: 3000,
-    database:'mongodb+srv://fares:Abomadawy12@UsersLogin.jnwjcua.mongodb.net/ECommerce?retryWrites=true&w=majority'
+    port: 4000,
+    database: 'mongodb+srv://Ziad:012440123@cluster0.plyz0.mongodb.net/e_commerce'
 }
