@@ -42,7 +42,6 @@ exports.addProduct = async (req, res, next) => {
   } return res.status(201).json({ product })
 }
 exports.getDetails = async (req, res, next) => {
-  const id = req.params.id
   let product;
   try {
     product = await Product.findOne({ _id: req.params.id })
@@ -64,6 +63,27 @@ exports.getLaptops = async (req, res) => {
   try {
 
     products = await Product.find({ "category": "Laptop" })
+
+  } catch (err) {
+    console.log(err)
+  }
+  if (!products) {
+    return res.status(404).json({ message: "No products found !" })
+  }
+  return res.status(201).render('laptops',
+    {
+      title: 'Products',
+      user: req.user,
+      arr: products
+    })
+
+}
+exports.getMobiles = async (req, res) => {
+
+  let products;
+  try {
+
+    products = await Product.find({ "category": "Mobiles" })
 
   } catch (err) {
     console.log(err)
