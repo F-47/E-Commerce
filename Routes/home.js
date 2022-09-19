@@ -41,5 +41,5 @@ router.post('/addProduct', productController.addProduct)
 
 router.get('/productDetails/:id', productController.getDetails)
 
-router.get('/home/laptops', productController.getLaptops)
+router.get('/home/category', productController.getProduct)
 module.exports = router

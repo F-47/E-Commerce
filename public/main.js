@@ -1,6 +1,9 @@
 
-let hotDeals = document.querySelector(".hot-deals .swiper-wrapper");
+document.querySelector(".allCategoriesBtn").addEventListener("click",()=>{
+  document.querySelector(".megamenu").classList.toggle("show")
+})
 
+let hotDeals = document.querySelector(".hot-deals .swiper-wrapper");
 
     // Remove Item From Cart
     let removeCartButtons = [...document.getElementsByClassName("delete")];
@@ -149,22 +152,16 @@ let hotDeals = document.querySelector(".hot-deals .swiper-wrapper");
       }
     }
 
-
-//click on allCategoriesBtn
-document.querySelector(".allCategoriesBtn").addEventListener("click",()=>{
-  document.querySelector(".megamenu").classList.toggle("show")
-})
-
-document.querySelector(".tosignup").addEventListener('click', (e) => {
-  e.preventDefault()
-  document.querySelector(".signInForm").classList.add("hidden")
-  document.querySelector(".signUpForm").classList.remove("hidden")
-})
-
-document.querySelector(".tosignin").addEventListener('click', (e) => {
-  e.preventDefault()
-  document.querySelector(".signInForm").classList.remove("hidden")
-  document.querySelector(".signUpForm").classList.add("hidden")
+//viwAll btn redirection
+let viewAll = [...document.querySelectorAll(".viewAll")]
+viewAll.map((item)=>{
+  item.addEventListener('click',(e)=>{
+    e.preventDefault()
+    if(e.target.parentNode.classList.contains("viewAll")){
+      let category = e.target.parentElement.parentElement.parentElement.parentElement.classList[0]
+      window.open("home/category?cat="+category,"_self")
+    }
+  })
 })
 
 

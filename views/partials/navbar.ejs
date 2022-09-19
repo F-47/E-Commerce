@@ -18,14 +18,8 @@
       </form>
       <div class="check d-flex align-items-center">
         <!-- SignIn -->
-        <% if(typeof(user)=="undefined" ){ %>
-          <div class="signin">
-            <!-- Button trigger modal -->
-            <a href="/home/login" class="fw-bold text-white border-0 text-decoration-none btn">Sign In<i
-                class="fa-regular fa-user ms-2"></i></a>
-          </div>
-          <% }else{ %>
-            <% if(user){ %>
+        
+            <% if(typeof(user)!="undefined"){ %>
               <div class="account dropdown">
                 <div class="text-light text-center">Hello <%= user.firstname %>
                 </div>
@@ -46,7 +40,6 @@
                   <a href="/home/login" class="fw-bold text-white border-0 text-decoration-none btn">Sign In<i
                       class="fa-regular fa-user ms-2"></i></a>
                   </div>
-                  <% } %>
                   <% } %>
                     <!-- Cart  -->
                     <div class="cart fw-bold">

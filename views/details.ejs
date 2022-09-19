@@ -76,7 +76,11 @@
         </div>
       </div>
         <%- include('./partials/footer.ejs') %>
-      <!-- <script src="productDetails.js"></script> -->
+        <script>
+          document.querySelector(".allCategoriesBtn").addEventListener("click",()=>{
+          document.querySelector(".megamenu").classList.toggle("show")
+          })
+        </script>
   </body>
 
 </html>

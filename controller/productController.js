@@ -61,12 +61,12 @@ exports.getDetails = async (req, res, next) => {
   })
 }
 
-exports.getLaptops = async (req, res) => {
-
+exports.getProduct = async (req, res) => {
+  let category = req.query.cat;
   let products;
   try {
 
-    products = await Product.find({ "category": "Laptop" })
+    products = await Product.find({ "category": category })
 
   } catch (err) {
     console.log(err)
@@ -74,7 +74,7 @@ exports.getLaptops = async (req, res) => {
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
-  return res.status(201).render('./category/laptops',
+  return res.status(201).render(`viewAllProduct`,
     {
       title: 'Products',
       user: req.user,
