@@ -13,7 +13,7 @@ exports.getAllProduct = async (req, res) => {
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
-
+  
   return res.status(201).render('HomePage',
     {
       title: 'Products',
@@ -64,76 +64,61 @@ exports.getDetails = async (req, res, next) => {
 exports.getProduct = async (req, res) => {
   let category = req.query.cat;
   let brand = req.query.brand;
-  console.log(brand)
-  if (typeof (brand) == 'undefined') {
-    let products;
+  let products;
+  if(brand){
     try {
       products = await Product.find({ "category": category })
     } catch (err) {
       console.log(err)
     }
-
     if (!products) {
       return res.status(404).json({ message: "No products found !" })
     }
-
+    
     let uniqueArr = new Set()
-    products.map((item) => {
+    products.map((item)=>{
       uniqueArr.add(item.name.split(" ")[0])
     })
 
+    let choosenBrandProducts = new Array();
+    products.map((item)=>{
+      if(item.name.split(" ")[0]===brand){
+        choosenBrandProducts.push(item)
+      }
+    })
+  
     return res.status(201).render(`viewAllProduct`,
       {
         title: 'Products',
         user: req.user,
-        arr: products,
+        choosenBrandProducts,
+        cat:category,
         uniqueArr
       })
-  } else {
-    let products;
-    try {
-      products = await db.Product.find({ 'name': { $in: brand } })
-    } catch (err) {
-      console.log(err)
-    }
+  }else{
+  let category = req.query.cat;
+  let products;
+  try {
+    products = await Product.find({ "category": category })
+  } catch (err) {
+    console.log(err)
+  }
+  if (!products) {
+    return res.status(404).json({ message: "No products found !" })
+  }
+  
+  let uniqueArr = new Set()
+  products.map((item)=>{
+    uniqueArr.add(item.name.split(" ")[0])
+  })
 
-    if (!products) {
-      return res.status(404).json({ message: "No products found !" })
-    }
-
-    let uniqueArr = new Set()
-    products.map((item) => {
-      uniqueArr.add(item.name.split(" ")[0])
+  return res.status(201).render(`viewAllProduct`,
+    {
+      title: 'Products',
+      user: req.user,
+      arr: products,
+      cat:category,
+      uniqueArr
     })
-
-    return res.status(201).render(`viewAllProduct`,
-      {
-        title: 'Products',
-        user: req.user,
-        arr: products,
-        uniqueArr
-      })
   }
 }
-
-// exports.getMobiles = async (req, res) => {
-
-//   let products;
-//   try {
-
-//     products = await Product.find({ "category": "Mobiles" })
-
-//   } catch (err) {
-//     console.log(err)
-//   }
-//   if (!products) {
-//     return res.status(404).json({ message: "No products found !" })
-//   }
-//   return res.status(201).render('laptops',
-//     {
-//       title: 'Products',
-//       user: req.user,
-//       arr: products
-//     })
-
-// }

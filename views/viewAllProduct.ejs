@@ -13,21 +13,12 @@
               <div class="col">
                 <div class="collapse multi-collapse ms-3" id="brandCollapse">
                   <div class="content mt-3">
-                    <div class="filter">
-                      <form method="get">
-                        <input id="cat" type="text" hidden name="cat" value="mobiles">
-                        <label for="cat"></label>
-                        <% uniqueArr.forEach((brand)=>{ %>
-                          <div class=" form-check">
-                            <input class="form-check-input" type="checkbox" value="<%= brand %> " id="flexCheckDefault" name="brand">
-                            <label class="form-check-label" for="flexCheckDefault">
-                              <%= brand %>
-                            </label>
-                            </div>
-                            <% }) %>
-                            <input type="submit" value="Filter">
-                            </form>
-                    </div>
+                    <% uniqueArr.forEach((brand)=>{ %>
+                      <div class="checkBox-brand-container">
+                        <input class="checkBox-brand" type="checkbox" value="<%= brand %>" id="flexCheckDefault" name="brand">
+                        <label class="checkBox-label" for="flexCheckDefault"><%= brand %></label>
+                      </div>
+                    <% }) %>
                   </div>
                 </div>
               </div>
@@ -83,28 +74,59 @@
             </div>
             <div class="col-lg-10">
               <div class="row">
-                <% arr.map((item)=>{ %>
-                  <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
-                    <div class="text-center">
-                      <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
-                    </div>
-                    <div class="text mb-1">
-                      <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
-                        <%= item.name %>
-                      </a>
+                <% if(typeof choosenBrandProducts != "undefined"){%> 
+                  <% choosenBrandProducts.map((item)=>{ %>
+                    <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
+                      <div class="text-center">
+                        <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                      </div>
+                      <div class="text mb-1">
+                        <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                          <%= item.name %>
+                        </a>
                       </div>
                       <div class="price text-primary">
-                      <span class="fw-bold">
-                        <%= item.price %>
-                      </span>
+                        <span class="fw-bold">
+                          <%= item.price %>
+                        </span>
                       </div>
-                      </div>
+                    </div>
                       <% }) %>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                        <%- include('./partials/footer.ejs') %>
-                          </body>
-
+                <%}else{%> 
+                  <% arr.map((item)=>{ %>
+                    <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
+                      <div class="text-center">
+                        <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                      </div>
+                      <div class="text mb-1">
+                        <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                          <%= item.name %>
+                        </a>
+                      </div>
+                      <div class="price text-primary">
+                        <span class="fw-bold">
+                          <%= item.price %>
+                        </span>
+                      </div>
+                    </div>
+                      <% }) %>
+                  <%} %> 
+                </div>
+            </div>
+          </div>
+        </div>
+        <%- include('./partials/footer.ejs') %>
+      </body>
+      <script>
+        //checkBox Brand selection 
+        let brandCheckBoxes = document.querySelectorAll(".checkBox-brand")
+        let url = window.location.href
+        console.log(url)
+        brandCheckBoxes.forEach((item)=>{
+          item.addEventListener('change',(e)=>{
+            let brand = e.target.value
+            window.open(`${url}&brand=${brand}`,"_self")
+          })
+        })
+      </script>
 </html>
