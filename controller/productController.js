@@ -65,20 +65,25 @@ exports.getProduct = async (req, res) => {
   let category = req.query.cat;
   let products;
   try {
-
     products = await Product.find({ "category": category })
-
   } catch (err) {
     console.log(err)
   }
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
+  
+  let uniqueArr = new Set()
+  products.map((item)=>{
+    uniqueArr.add(item.name.split(" ")[0])
+  })
+
   return res.status(201).render(`viewAllProduct`,
     {
       title: 'Products',
       user: req.user,
-      arr: products
+      arr: products,
+      uniqueArr
     })
 
 }
