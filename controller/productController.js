@@ -88,24 +88,24 @@ exports.getProduct = async (req, res) => {
 
 }
 
-exports.getMobiles = async (req, res) => {
+// exports.getMobiles = async (req, res) => {
 
-  let products;
-  try {
+//   let products;
+//   try {
 
-    products = await Product.find({ "category": "Mobiles" })
+//     products = await Product.find({ "category": "Mobiles" })
 
-  } catch (err) {
-    console.log(err)
-  }
-  if (!products) {
-    return res.status(404).json({ message: "No products found !" })
-  }
-  return res.status(201).render('laptops',
-    {
-      title: 'Products',
-      user: req.user,
-      arr: products
-    })
+//   } catch (err) {
+//     console.log(err)
+//   }
+//   if (!products) {
+//     return res.status(404).json({ message: "No products found !" })
+//   }
+//   return res.status(201).render('laptops',
+//     {
+//       title: 'Products',
+//       user: req.user,
+//       arr: products
+//     })
 
-}
+// }
