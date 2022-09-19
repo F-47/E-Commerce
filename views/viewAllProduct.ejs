@@ -8,87 +8,103 @@
         <div class="detailsContent py-5 px-5 m-0 bg-light">
           <div class="row">
             <div class="col-lg-2">
-                <a class="btn btn-outline fw-bold dropdown-toggle border-0" data-bs-toggle="collapse" href="#brandCollapse" role="button" aria-expanded="true" aria-controls="brandCollapse">Brand</a>
-                <div class="col">
-                  <div class="collapse multi-collapse ms-3" id="brandCollapse">
-                    <div class="content mt-3">
-                      <% uniqueArr.forEach((item)=>{ %>
-                      <div class=" form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault"><%= item %></label>
-                      </div>
-                      <% }) %>
+              <a class="btn btn-outline fw-bold dropdown-toggle border-0" data-bs-toggle="collapse" href="#brandCollapse"
+                role="button" aria-expanded="true" aria-controls="brandCollapse">Brand</a>
+              <div class="col">
+                <div class="collapse multi-collapse ms-3" id="brandCollapse">
+                  <div class="content mt-3">
+                    <div class="filter">
+                      <form method="get">
+                        <input id="cat" type="text" hidden name="cat" value="mobiles">
+                        <label for="cat"></label>
+                        <% uniqueArr.forEach((brand)=>{ %>
+                          <div class=" form-check">
+                            <input class="form-check-input" type="checkbox" value="<%= brand %> " id="flexCheckDefault" name="brand">
+                            <label class="form-check-label" for="flexCheckDefault">
+                              <%= brand %>
+                            </label>
+                            </div>
+                            <% }) %>
+                            <input type="submit" value="Filter">
+                            </form>
                     </div>
                   </div>
                 </div>
-                <a class="btn btn-outline fw-bold dropdown-toggle mt-2 border-0" data-bs-toggle="collapse" href="#networkCollapse" role="button" aria-expanded="false" aria-controls="networkCollapse">Network Type</a>
-                <div class="col">
-                  <div class="collapse multi-collapse ms-3" id="networkCollapse">
-                    <div class="content mt-3">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">5G</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">4G</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">3G</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">2G</label>
-                      </div>
+              </div>
+              <a class="btn btn-outline fw-bold dropdown-toggle mt-2 border-0" data-bs-toggle="collapse" href="#networkCollapse"
+                role="button" aria-expanded="false" aria-controls="networkCollapse">Network
+                Type</a>
+              <div class="col">
+                <div class="collapse multi-collapse ms-3" id="networkCollapse">
+                  <div class="content mt-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">5G</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">4G</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">3G</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">2G</label>
                     </div>
                   </div>
                 </div>
-                <a class="btn btn-outline fw-bold dropdown-toggle mt-2 border-0" data-bs-toggle="collapse" href="#modelYear" role="button" aria-expanded="false" aria-controls="modelYear">Model Year</a>
-                <div class="col">
-                  <div class="collapse multi-collapse ms-3" id="modelYear">
-                    <div class="content mt-3">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">2022</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">2021</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">2020</label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">2019</label>
-                      </div>
+              </div>
+              <a class="btn btn-outline fw-bold dropdown-toggle mt-2 border-0" data-bs-toggle="collapse" href="#modelYear"
+                role="button" aria-expanded="false" aria-controls="modelYear">Model Year</a>
+              <div class="col">
+                <div class="collapse multi-collapse ms-3" id="modelYear">
+                  <div class="content mt-3">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">2022</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">2021</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">2020</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault">2019</label>
                     </div>
                   </div>
-                </div>
-            </div>
-            <div class="col-lg-10">  
-              <div class="row">
-                <% arr.map((item)=>{ %>
-                  <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
-                      <div class="text-center">
-                        <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
-                      </div>
-                      <div class="text mb-1">
-                        <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
-                          <%= item.name %>
-                        </a>
-                      </div>
-                      <div class="price text-primary">
-                        <span class="fw-bold"><%= item.price %></span>
-                      </div>
-                    </div>
-                <% }) %>
                 </div>
               </div>
             </div>
-            </div>
-            <%- include('./partials/footer.ejs') %>
-          </body>
+            <div class="col-lg-10">
+              <div class="row">
+                <% arr.map((item)=>{ %>
+                  <div class="col-lg-3 col-md-3 col-sm-6 mb-4">
+                    <div class="text-center">
+                      <a href="/productDetails/<%= item._id %>"><img src="<%= item.image_url %>" class="product-img" alt="" height="220" />
+                    </div>
+                    <div class="text mb-1">
+                      <a href="/productDetails/<%= item._id %>" class="text-decoration-none text-dark text-product fw-bold">
+                        <%= item.name %>
+                      </a>
+                      </div>
+                      <div class="price text-primary">
+                      <span class="fw-bold">
+                        <%= item.price %>
+                      </span>
+                      </div>
+                      </div>
+                      <% }) %>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        <%- include('./partials/footer.ejs') %>
+                          </body>
+
 </html>

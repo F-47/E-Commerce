@@ -13,7 +13,7 @@ exports.getAllProduct = async (req, res) => {
   if (!products) {
     return res.status(404).json({ message: "No products found !" })
   }
-  
+
   return res.status(201).render('HomePage',
     {
       title: 'Products',
@@ -63,29 +63,57 @@ exports.getDetails = async (req, res, next) => {
 
 exports.getProduct = async (req, res) => {
   let category = req.query.cat;
-  let products;
-  try {
-    products = await Product.find({ "category": category })
-  } catch (err) {
-    console.log(err)
-  }
-  if (!products) {
-    return res.status(404).json({ message: "No products found !" })
-  }
-  
-  let uniqueArr = new Set()
-  products.map((item)=>{
-    uniqueArr.add(item.name.split(" ")[0])
-  })
+  let brand = req.query.brand;
+  console.log(brand)
+  if (typeof (brand) == 'undefined') {
+    let products;
+    try {
+      products = await Product.find({ "category": category })
+    } catch (err) {
+      console.log(err)
+    }
 
-  return res.status(201).render(`viewAllProduct`,
-    {
-      title: 'Products',
-      user: req.user,
-      arr: products,
-      uniqueArr
+    if (!products) {
+      return res.status(404).json({ message: "No products found !" })
+    }
+
+    let uniqueArr = new Set()
+    products.map((item) => {
+      uniqueArr.add(item.name.split(" ")[0])
     })
 
+    return res.status(201).render(`viewAllProduct`,
+      {
+        title: 'Products',
+        user: req.user,
+        arr: products,
+        uniqueArr
+      })
+  } else {
+    let products;
+    try {
+      products = await db.Product.find({ 'name': { $in: brand } })
+    } catch (err) {
+      console.log(err)
+    }
+
+    if (!products) {
+      return res.status(404).json({ message: "No products found !" })
+    }
+
+    let uniqueArr = new Set()
+    products.map((item) => {
+      uniqueArr.add(item.name.split(" ")[0])
+    })
+
+    return res.status(201).render(`viewAllProduct`,
+      {
+        title: 'Products',
+        user: req.user,
+        arr: products,
+        uniqueArr
+      })
+  }
 }
 
 // exports.getMobiles = async (req, res) => {
