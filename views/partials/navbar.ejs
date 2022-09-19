@@ -3,103 +3,72 @@
     <div class="logo">
       <a href="/"><img src="../Imgs/logo.png" alt="" width="100px" /></a>
     </div>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Search  -->
       <form class="d-flex form-inline mx-auto my-2" role="search">
-        <input
-          class="form-control search-barr rounded-0 fw-bold"
-          type="search"
-          aria-label="Search"
-          type="text"
-          placeholder="What are you looking for?"
-          name="q"
-          autocomplete="none"
-        />
+        <input class="form-control search-barr rounded-0 fw-bold" type="search" aria-label="Search" type="text"
+          placeholder="What are you looking for?" name="q" autocomplete="none" />
         <button type="submit" class="search-btn border-0">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </form>
       <div class="check d-flex align-items-center">
         <!-- SignIn -->
-        <% if(user){ %> 
-          <div class="account dropdown">
-            <div class="text-light text-center">Hello <%= user.firstname %> </div>
-            <a
-              class="fw-bold text-white border-0 text-decoration-none btn"
-              type="button"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              My Account<i class="fa-regular fa-user ms-2"></i>
-            </a>
-            <ul class="dropdown-menu p-0 rounded-0">
-              <li>
-                <a class="dropdown-item" href="/home/profile?id=<%=user._id %>">Profile</a>
-                <a href="/home/logout" class="dropdown-item">Logout</a>
-              </li>
-            </ul>
+        <% if(typeof(user)=="undefined" ){ %>
+          <div class="signin">
+            <!-- Button trigger modal -->
+            <a href="/home/login" class="fw-bold text-white border-0 text-decoration-none btn">Sign In<i
+                class="fa-regular fa-user ms-2"></i></a>
           </div>
-          <% }else{ %> 
-            <div class="signin">
-              <!-- Button trigger modal -->
-              <a
-                href="/home/login"
-                class="fw-bold text-white border-0 text-decoration-none btn"
-                >Sign In<i class="fa-regular fa-user ms-2"></i
-              ></a>
-            </div>
-            <% } %>  
-        
-        <!-- Cart  -->
-        <div class="cart fw-bold">
-          <button
-            type="button"
-            class="btn"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample"
-          >
-            <span class="fw-bold text-white border-0"
-              >Cart<i class="fa-solid fa-cart-shopping ms-2"></i
-            ></span>
-            <div class="cart-counter text-light">2</div>
-          </button>
-        </div>
+          <% }else{ %>
+            <% if(user){ %>
+              <div class="account dropdown">
+                <div class="text-light text-center">Hello <%= user.firstname %>
+                </div>
+                <a class="fw-bold text-white border-0 text-decoration-none btn" type="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  My Account<i class="fa-regular fa-user ms-2"></i>
+                </a>
+                <ul class="dropdown-menu p-0 rounded-0">
+                  <li>
+                    <a class="dropdown-item" href="/home/profile?id=<%=user._id %>">Profile</a>
+                    <a href="/home/logout" class="dropdown-item">Logout</a>
+                  </li>
+                </ul>
+                </div>
+                <% }else{ %>
+                  <div class="signin">
+                    <!-- Button trigger modal -->
+                  <a href="/home/login" class="fw-bold text-white border-0 text-decoration-none btn">Sign In<i
+                      class="fa-regular fa-user ms-2"></i></a>
+                  </div>
+                  <% } %>
+                  <% } %>
+                    <!-- Cart  -->
+                    <div class="cart fw-bold">
+                      <button type="button" class="btn" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                        aria-controls="offcanvasExample">
+                        <span class="fw-bold text-white border-0">Cart<i class="fa-solid fa-cart-shopping ms-2"></i></span>
+                        <div class="cart-counter text-light">2</div>
+                      </button>
+                      </div>
       </div>
     </div>
   </div>
 </nav>
 
 <!-- Cart Modal -->
-<div
-  class="offcanvas offcanvas-end"
-  data-bs-scroll="true"
-  data-bs-backdrop="false"
-  tabindex="-1"
-  id="offcanvasExample"
-  aria-labelledby="offcanvasExampleLabel"
->
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title fw-bold m-auto fs-3" id="offcanvasExampleLabel">
       Your Cart
     </h5>
-    <button
-      type="button"
-      class="btn-close"
-      data-bs-dismiss="offcanvas"
-      aria-label="Close"
-    ></button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
     <div class="card cart-content mb-3 border-0" style="max-width: 540px"></div>
@@ -107,9 +76,7 @@
     <div class="total fw-bold d-flex justify-content-end mb-5 fs-5">
       <span class="total-price">Total: 0 EGP</span>
     </div>
-    <button
-      class="btn btn-danger m-auto d-flex justify-content-center fs-4 fw-bold rounded-0"
-    >
+    <button class="btn btn-danger m-auto d-flex justify-content-center fs-4 fw-bold rounded-0">
       Buy Now
     </button>
   </div>
