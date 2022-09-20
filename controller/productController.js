@@ -82,7 +82,7 @@ exports.getProduct = async (req, res) => {
 
     let choosenBrandProducts = new Array();
     products.map((item)=>{
-      if(item.name.split(" ")[0]===brand){
+      if(item.name.split(" ")[0].toLowerCase()===brand.toLowerCase()){
         choosenBrandProducts.push(item)
       }
     })

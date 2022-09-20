@@ -5,7 +5,7 @@
   <body>
     <%- include('./partials/navbar.ejs') %>
       <%- include('./partials/sub-header.ejs') %>
-        <div class="detailsContent py-5 px-5 m-0 bg-light">
+        <div class="<%=cat%> py-5 px-5 m-0 bg-light">
           <div class="row">
             <div class="col-lg-2">
               <a class="btn btn-outline fw-bold dropdown-toggle border-0" data-bs-toggle="collapse" href="#brandCollapse"
@@ -116,17 +116,18 @@
           </div>
         </div>
         <%- include('./partials/footer.ejs') %>
-      </body>
       <script>
         //checkBox Brand selection 
         let brandCheckBoxes = document.querySelectorAll(".checkBox-brand")
+        
         let url = window.location.href
-        console.log(url)
         brandCheckBoxes.forEach((item)=>{
           item.addEventListener('change',(e)=>{
             let brand = e.target.value
-            window.open(`${url}&brand=${brand}`,"_self")
+            let category = e.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.classList[0]
+            window.open(`/home/category?cat=${category}&brand=${brand}`,"_self")
           })
         })
       </script>
+      </body>
 </html>
