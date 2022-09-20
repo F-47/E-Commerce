@@ -11,12 +11,12 @@
               <a class="btn btn-outline fw-bold dropdown-toggle border-0" data-bs-toggle="collapse" href="#brandCollapse"
                 role="button" aria-expanded="true" aria-controls="brandCollapse">Brand</a>
               <div class="col">
-                <div class="collapse multi-collapse ms-3" id="brandCollapse">
+                <div class="collapse show multi-collapse ms-3" id="brandCollapse">
                   <div class="content mt-3">
                     <% uniqueArr.forEach((brand)=>{ %>
                       <div class="checkBox-brand-container">
-                        <input class="checkBox-brand" type="checkbox" value="<%= brand %>" id="flexCheckDefault" name="brand">
-                        <label class="checkBox-label" for="flexCheckDefault"><%= brand %></label>
+                        <input class="checkBox-brand" type="checkbox" value="<%= brand %>" id=<%= brand %>  name="brand">
+                        <label class="checkBox-label" for=<%= brand %> ><%= brand %></label>
                       </div>
                     <% }) %>
                   </div>
